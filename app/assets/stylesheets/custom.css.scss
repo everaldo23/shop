@@ -1,12 +1,19 @@
 @import "bootstrap";
 
 $grayMediumLight: #eaeaea;
+$gray-light: #778899;
+$gray: #bebebe;
+$gray-darker: #808080;
+$gray-lighter: #d3d3d3;
 
 @mixin box_sizing {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
+.navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;}
+.navbar {max-height:10px !important}
 /* universal */
 
 html {
@@ -49,7 +56,7 @@ h2 {
 	margin-bottom: 30px;
 	text-align: center;
 	font-weight: normal;
-	color: $grayLight;
+	/*color: $grayLight;*/
 }
 p {
 	font-size: 1.1em;
@@ -80,11 +87,11 @@ footer {
 	margin-top: 45px;
 	padding-top: 5px;
 	border-top: 1px solid $grayMediumLight;
-	color: $grayLight;
+	color: $gray-light;
 	a {
 		color: $gray;
 		&:hover {
-			color: $grayDarker;
+			color: $gray-darker;
 		}
 	}
 	
@@ -114,7 +121,7 @@ footer {
 aside {
 	section{ 
 		padding: 10px;
-		border-top: $grayLighter;
+		border-top: $gray-lighter;
 		&:first-child {
 			border: 0;
 			padding-top: 0;
@@ -157,7 +164,20 @@ input {
 		margin: 0 0 18px 0;
 	}
 }
-.field_with_errors {
-	@extend .control-group;
-	@extend .error;
+
+.btn-custom {
+  background-color: hsl(360, 73%, 36%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#dd2b2b", endColorstr="#9e1818");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#dd2b2b), to(#9e1818));
+  background-image: -moz-linear-gradient(top, #dd2b2b, #9e1818);
+  background-image: -ms-linear-gradient(top, #dd2b2b, #9e1818);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dd2b2b), color-stop(100%, #9e1818));
+  background-image: -webkit-linear-gradient(top, #dd2b2b, #9e1818);
+  background-image: -o-linear-gradient(top, #dd2b2b, #9e1818);
+  background-image: linear-gradient(#dd2b2b, #9e1818);
+  border-color: #9e1818 #9e1818 hsl(360, 73%, 32%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.26);
+  -webkit-font-smoothing: antialiased;
 }
