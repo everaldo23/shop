@@ -7,7 +7,14 @@
 					<li><%= link_to "Help", 	help_path %></li>
 				</ul>
 			</nav>
-			<% if current_page?(signup_path)%>
+			<% if signed_in? %>
+				<nav>
+					<ul class="nav navbar-nav pull-right">
+						<li><%= link_to "Profile", 	current_user %></li>
+						<li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+					</ul>
+				</nav>
+			<% elsif current_page?(signup_path)%>
 			<% else %>
 				<%= form_for(:session, url: sessions_path, :html => { :class => "navbar-form navbar-right" })  do |f| %>
 				<div class="form-group">
