@@ -164,6 +164,19 @@ input {
 	}
 }
 
+.users {
+	list-style: none;
+	margin: 0;
+	li {
+		overflow: auto;
+		padding: 10px 0;
+		border-top: 1px solid $gray-lighter;
+		&:last-child {
+			border-bottom: 1px solid $gray-lighter;
+		}
+	}
+}
+
 .btn-custom {
   background-color: hsl(360, 73%, 36%) !important;
   background-repeat: repeat-x;

@@ -103,4 +103,27 @@ describe "User pages" do
       specify { expect(user.reload.email).to eq new_email }
     end      
   end
+  
+  describe "Index" do
+    let(:user) { FactoryGirl.create(:user) }
+    before(:each) do
+      sign_in user
+      visit users_path
+    end
+    
+    it { should have_title("All users") }
+    it { should have_selector('h1', text: "All users") }
+    
+    describe "pagination" do
+      
+      before(:all) { 30.times { FactoryGirl.create(:user) } }
+      after(:all)  { User.delete_all }
+      
+      it "should list all users" do
+        User.paginate(page: 1).each do |user|
+          expect(page).to have_selector('li', text: user.name)
+        end
+      end   
+    end
+  end
 end

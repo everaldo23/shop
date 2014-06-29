@@ -16,12 +16,12 @@ describe "Authentication" do
     describe "with invalid information" do
       before { click_button "Sign in" }
       
-      it {should have_selector('div.alert.alert-error') }
+      it {should have_selector('div.alert.alert-danger') }
       
       describe "after visiting another page" do
         before { click_link "Shopping" }
         
-        it { should_not have_selector('div.alert.alert-error') }
+        it { should_not have_selector('div.alert.alert-danger') }
       end
     end 
     
@@ -35,6 +35,7 @@ describe "Authentication" do
       end
       
       it { should have_title(user.name) }
+      it { should have_link("Users",        href: users_path) }
       it { should have_link("Edit Profile", href: edit_user_path(user)) }
       it { should have_link("Profile",      href: user_path(user)) }
       it { should have_link("Sign out",     href: signout_path) }
@@ -52,6 +53,21 @@ describe "Authentication" do
     describe "for non-signed users" do
       let(:user)    { FactoryGirl.create(:user) }
       
+      describe "when attempting to visit a protected page" do
+        before do 
+          visit edit_user_path(user)
+          fill_in "Email",    with: user.email
+          fill_in "Password", with: user.password
+          click_button "Sign in"
+        end
+        
+        describe "after signing in" do
+          it "should render the protected page" do
+            expect(page).to have_title('Edit page')
+          end
+        end
+      end
+      
       describe "in the Users controller" do
         
         describe "when visiting the edit page" do
@@ -62,6 +78,11 @@ describe "Authentication" do
         describe "when submitting to the update action" do
           before { patch user_path(user) }
           specify { expect(response).to redirect_to(signin_path) }
+        end
+        
+        describe "visiting the user index" do
+          before { visit users_path }
+          it { should have_selector('h1', text: "Shopping") }
         end
       end    
     end

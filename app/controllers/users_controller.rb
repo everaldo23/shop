@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:edit, :update]
+  before_action :signed_in_user, only: [:index, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
  
   def show
@@ -33,6 +33,9 @@ class UsersController < ApplicationController
     end
   end
   
+  def index
+    @users = User.paginate(page: params[:page])
+  end
   private
     
     def user_params
@@ -41,6 +44,7 @@ class UsersController < ApplicationController
     
     def signed_in_user
       unless signed_in?
+        store_location
         flash[:warning] = "Please sign in"
         redirect_to signin_url
       end
