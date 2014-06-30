@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   
-  def _header
+  def new
   end
   
   def create
@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_back_or user
     else
       flash.now[:danger] = "Invalid email/password combination!"
-      render 'static_pages/home'
+      render 'sessions/new'
     end
   end
   

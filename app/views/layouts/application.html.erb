@@ -4,14 +4,24 @@
 	<title><%=full_title (yield(:title))%></title>
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<script type="text/javascript">
+	$(document).ready({
+	   if (window.location.hash == "sessions") {
+	      $("#div_to_show").hide();
+	   }
+	});
+	</script>
 	<%= csrf_meta_tags %>
 	<%= render 'layouts/shim' %>
 </head>
 <body>
 	<%= render 'layouts/header' %>
+	<% if current_page?(root_path)%>
+		<%= render 'layouts/carousel'%>
+	<% end %>
 	<div class="container">
 		<% flash.each do |key, value| %>
-			<%= content_tag(:div, value, class: "alert alert-#{key}") %>
+			<%=content_tag(:div, value, class: "alert alert-#{key}") %>
 		<% end %>
 		<%= yield %>
 		<%= render 'layouts/footer' %>

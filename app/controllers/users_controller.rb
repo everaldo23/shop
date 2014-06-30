@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+  before_action :admin_user, only: [:destroy, :index]
  
   def show
     @user = User.find(params[:id])
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
       unless signed_in?
         store_location
         flash[:warning] = "Please sign in"
-        redirect_to signin_url
+        redirect_to signin2_url
       end
     end
     

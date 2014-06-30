@@ -5,6 +5,7 @@ Shop::Application.routes.draw do
   root"static_pages#home"
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'static_pages#home',    via: 'get'
+  match '/signin2', to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/help',    to: 'static_pages#help',    via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
