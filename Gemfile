@@ -9,6 +9,7 @@ gem 'bcrypt', '3.1.7'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.6'
 gem 'bootstrap-will_paginate', '0.0.10'
+gem 'holder_rails', '2.3.2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

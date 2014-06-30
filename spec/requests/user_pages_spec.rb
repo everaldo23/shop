@@ -4,6 +4,53 @@ describe "User pages" do
   
   subject { page }
   
+  describe "Index" do
+    let(:user) { FactoryGirl.create(:user) }
+    
+    before(:each) do
+      sign_in user
+      visit users_path
+    end
+    
+    it { should have_title("All users") }
+    it { should have_selector('h1', text: "All users") }
+    
+    describe "pagination" do
+      
+      before(:all) { 30.times { FactoryGirl.create(:user) } }
+      after(:all)  { User.delete_all }
+      
+      it "should list all users" do
+        User.paginate(page: 1).each do |user|
+          expect(page).to have_selector('li', text: user.name)
+        end
+      end   
+    end
+    
+    describe "delete links" do
+      
+      it { should_not have_link("Delete") }
+      
+      describe "as an admin user" do
+        let(:admin) { FactoryGirl.create(:admin) }
+        before do
+          sign_out
+          sign_in admin
+          visit users_path
+        end
+        
+        it { should have_link("Delete", href: user_path(User.first)) }
+        
+        it "should be able to delete another user" do
+          expect do
+            click_link('Delete', match: :first)
+          end.to change(User, :count).by(-1)
+        end      
+        it { should_not have_link('Delete', href: user_path(admin)) }
+      end
+    end
+  end
+  
   describe" Profile page" do
     let (:user) { FactoryGirl.create(:user) }
     before { visit user_path(user) }
@@ -104,26 +151,4 @@ describe "User pages" do
     end      
   end
   
-  describe "Index" do
-    let(:user) { FactoryGirl.create(:user) }
-    before(:each) do
-      sign_in user
-      visit users_path
-    end
-    
-    it { should have_title("All users") }
-    it { should have_selector('h1', text: "All users") }
-    
-    describe "pagination" do
-      
-      before(:all) { 30.times { FactoryGirl.create(:user) } }
-      after(:all)  { User.delete_all }
-      
-      it "should list all users" do
-        User.paginate(page: 1).each do |user|
-          expect(page).to have_selector('li', text: user.name)
-        end
-      end   
-    end
-  end
 end

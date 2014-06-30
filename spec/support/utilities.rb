@@ -12,3 +12,7 @@ def sign_in(user, options={})
     click_button "Sign in"
   end
 end
+
+def sign_out
+  first(:link, "Sign out").click
+end
