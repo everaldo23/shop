@@ -3,6 +3,7 @@ Shop::Application.routes.draw do
   get "products/form"
   resources :users
   resources :sessions, only: [:create, :destroy]
+  resources :products
   
   root"static_pages#home"
   match '/signup',  to: 'users#new',            via: 'get'
