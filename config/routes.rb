@@ -1,4 +1,6 @@
 Shop::Application.routes.draw do
+  get "products/index"
+  get "products/form"
   resources :users
   resources :sessions, only: [:create, :destroy]
   
