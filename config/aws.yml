@@ -1,0 +1,14 @@
+development:
+  bucket_name: shopphoto
+  access_key_id: AKIAI3GCXRL5GFKD74BA
+  secret_access_key: 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
+
+test:
+  bucket_name: shopphoto
+  access_key_id: AKIAI3GCXRL5GFKD74BA
+  secret_access_key: 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
+
+production:
+  bucket_name: shopphoto
+  access_key_id: AKIAI3GCXRL5GFKD74BA
+  secret_access_key: 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

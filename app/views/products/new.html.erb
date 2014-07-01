@@ -1,4 +1,33 @@
-<% provide(:title, "Product listing")%>
+<% provide(:title, "List products")%>
 
-<h1>Product listing</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<h1>List products</h1>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<%= form_for(@product, :html => { :multipart => true} ) do |f| %>
+			
+			<%= render 'shared/error_messages2' %>
+		
+			<div class="form-group">
+			<%= f.label :title %>
+			<%= f.text_field :title, class: "form-control" %>
+			</div>
+			<div class="form-group">	
+			<%= f.label :description %>
+			<%= f.text_area :description, class: "form-control", rows: 6 %>
+		    </div>
+			<div class="form-group">				
+		    <%= f.label :shopphoto, "Merchandise Photo" %>
+			<%= f.file_field :shopphoto, class: "form-control" %>			
+		    </div>
+			<div class="form-group">
+			<%= f.label :price, "Price" %>
+			<%= f.text_field :price, class: "form-control" %>
+		    </div>
+			
+			<%= f.submit "List product", class: "btn btn-large btn-custom" %>			
+			<% end %>
+		</div>
+	</div>
+</div>

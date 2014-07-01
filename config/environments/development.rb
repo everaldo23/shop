@@ -15,6 +15,16 @@ Shop::Application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
+  
+  #for paperclip
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['shopphoto'],
+      :access_key_id => ENV['AKIAI3GCXRL5GFKD74BA'],
+      :secret_access_key => ENV['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']
+    }
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

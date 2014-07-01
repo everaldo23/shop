@@ -9,4 +9,11 @@ FactoryGirl.define do
       admin true
     end
   end
+  
+  factory :product do
+    title        "Bread"
+    description  "This is a piece of bread"
+    image_url    "Bread.png"
+    price        "6.00"
+  end     
 end

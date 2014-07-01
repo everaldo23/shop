@@ -19,7 +19,7 @@
 							<li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
 							<% if current_user.admin? %>
 							<li><%= link_to "Clients", users_path %></li>
-							<li><%= link_to "List products", '#' %></li>
+							<li><%= link_to "List products", new_product_path %></li>
 							<% end %>
 							<li class="divider"></li>
 							<li>

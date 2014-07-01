@@ -48,6 +48,17 @@ Shop::Application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security,
   # and use secure cookies.
   config.force_ssl = true
+  
+  #for paperclip
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['shopphoto'],
+      :access_key_id => ENV['AKIAI3GCXRL5GFKD74BA'],
+      :secret_access_key => ENV['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']
+    }
+  }
+ 
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]

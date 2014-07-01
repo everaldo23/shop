@@ -24,11 +24,7 @@ describe Product do
     before { @product.description = " " }
     it { should_not be_valid }
   end
-  
-  describe "when image_url is not present" do
-    before { @product.image_url = " " }
-    it { should_not be_valid }
-  end
+
   
   describe "when price is too low" do
     before { @product.price = "0.00" }
@@ -48,24 +44,7 @@ describe Product do
     before { @product.description = "a" * 101 }
     it { should_not be_valid }
   end
-  
-  describe "when image_url is the wrong format" do
-    it "should be invalid" do
-      fileformat = %w[bread.woff, bread.mkv, bread.mp4]
-      fileformat.each do |invalid_format|
-        @product.image_url = invalid_format
-        expect(@product).not_to be_valid
-      end
-    end
-  end
-  
-  describe "when image_url is the correct format" do
-    it "should be valid" do
-      fileformat = %w[bread.png, bread.gif, bread.jpg]
-      fileformat.each do |valid_format|
-        @product.image_url = valid_format
-        expect(@product).to be_valid
-      end
-    end
-  end  
 end
+  
+ 
+  
