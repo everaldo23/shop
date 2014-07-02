@@ -1,0 +1,32 @@
+<% provide(:title, "Catalog") %>
+
+<h1>Catalog</h1>
+
+<body data-spy="scroll" data-target="#myScrollSpy">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3" id="myScrollSpy">
+				<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
+					<li class="active"><a href="#one">Books</a></li>
+					<li><a href="#two">Medicine</a></li>
+					<li><a href="#three">Accessories</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9 col-md-offset-3">
+				<% @products.each do |product| %>
+				<div class="col-md-4">
+					<%= image_tag product.shopphoto.url(:square) %></br>
+					<%= link_to product.title, product %></br>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</body>
+
+		
+		

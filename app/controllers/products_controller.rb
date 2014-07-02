@@ -18,6 +18,10 @@ class ProductsController < ApplicationController
     end
   end
   
+  def index
+    @products = Product.all
+  end
+  
   private
     def product_params
       params.require(:product).permit(:category, :brand, :title, :description, :shopphoto, :price)
