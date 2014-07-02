@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140702023500) do
+ActiveRecord::Schema.define(version: 20140702035402) do
 
   create_table "products", force: true do |t|
     t.string   "title"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20140702023500) do
     t.string   "shopphoto_content_type"
     t.integer  "shopphoto_file_size"
     t.datetime "shopphoto_updated_at"
-    t.string   "type"
     t.string   "brand"
+    t.string   "category"
   end
 
   create_table "users", force: true do |t|

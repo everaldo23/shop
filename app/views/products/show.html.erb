@@ -1,11 +1,12 @@
 <% provide(:title, @product.title)%>
 
-<div class="row">
-	<aside class="span4">
-		<section>
-			<h1>
-				<%= @product.title %>
-			</h1>
-		</section>
-	</aside>
+<div class="good_image">
+<%= image_tag @product.shopphoto.url(:medium) %>
 </div>
+
+<h1><%= @product.title %></h1>
+
+
+
+		
+	
