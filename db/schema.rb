@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701072157) do
+ActiveRecord::Schema.define(version: 20140702023500) do
 
   create_table "products", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "image_url"
     t.decimal  "price",                  precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -24,6 +23,8 @@ ActiveRecord::Schema.define(version: 20140701072157) do
     t.string   "shopphoto_content_type"
     t.integer  "shopphoto_file_size"
     t.datetime "shopphoto_updated_at"
+    t.string   "type"
+    t.string   "brand"
   end
 
   create_table "users", force: true do |t|
