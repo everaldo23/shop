@@ -19,7 +19,9 @@ class ProductsController < ApplicationController
   end
   
   def index
-    @products = Product.all
+    @books = Product.order(:brand).where({ category: "Books"})
+    @medicine = Product.order(:brand).where({ category: "Medicine"})
+    @accessories = Product.order(:brand).where({ category: "Accessories"})
   end
   
   private

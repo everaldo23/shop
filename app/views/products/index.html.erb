@@ -1,32 +1,54 @@
 <% provide(:title, "Catalog") %>
 
-<h1>Catalog</h1>
-
-<body data-spy="scroll" data-target="#myScrollSpy">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3" id="myScrollSpy">
-				<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
-					<li class="active"><a href="#one">Books</a></li>
-					<li><a href="#two">Medicine</a></li>
-					<li><a href="#three">Accessories</a></li>
-				</ul>
+<div class="container">
+	<div class="jumbotron">
+		<h1>Catalog</h1>
+	</div>
+	<div class="row">
+		<div class="col-xs-3" id"myScrollSpy">
+			<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
+				<li class="active"><a href="#Books">Books</a></li>
+				<li><a href="#Medicine">Medicine</a></li>
+				<li><a href="#Accessories">Accessories</a></li>
+			</ul>
+		</div>
+		<div class="row row-catalog" id="Books">
+			<div class="col-md-9 col-md-offset-3">
+				<% @books.each do |product| %>
+				<div class="col-md-4" id="books">
+					<%= image_tag product.shopphoto.url(:square) %></br>
+					<%= link_to product.category, product %>
+					<%= product.brand %>
+				</div>
+				<% end %>
 			</div>
 		</div>
-	</div>
-	<div class="container">
-		<div class="row">
+		<div class="row row-catalog" id="Medicine">
 			<div class="col-md-9 col-md-offset-3">
-				<% @products.each do |product| %>
-				<div class="col-md-4">
+				<% @medicine.each do |product| %>
+				<div class="col-md-4" id="books">
 					<%= image_tag product.shopphoto.url(:square) %></br>
-					<%= link_to product.title, product %></br>
+					<%= link_to product.category, product %>
+					<%= product.brand %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="row row-catalog" id="Accessories">
+			<div class="col-md-9 col-md-offset-3">
+				<% @accessories.each do |product| %>
+				<div class="col-md-4" id="books">
+					<%= image_tag product.shopphoto.url(:square) %></br>
+					<%= link_to product.category, product %>
+					<%= product.brand %>
 				</div>
 				<% end %>
 			</div>
 		</div>
 	</div>
-</body>
+</div>
+
+
 
 		
 		
