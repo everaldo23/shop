@@ -331,13 +331,29 @@ ul.nav-tabs.affix{
 
 
 .col-md-4{
+	margin-top:60px;
 	margin-bottom: 30px;
+	.a{
+		.subhead2{
+			margin-left: auto;
+			margin-right: auto;
+			width: 70%;
+		}
+	}
 }
 
 .col-md-9{
 	border-bottom: 1px solid black;
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	h2.subhead{
+	    position: absolute;
+	    left: 0px;
+		font-size: 25px;
+	  
+	}
 }
+
+
 
 

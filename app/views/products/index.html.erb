@@ -5,42 +5,44 @@
 		<h1>Catalog</h1>
 	</div>
 	<div class="row">
-		<div class="col-xs-3" id"myScrollSpy">
-			<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
-				<li class="active"><a href="#Books">Books</a></li>
-				<li><a href="#Medicine">Medicine</a></li>
-				<li><a href="#Accessories">Accessories</a></li>
+		<div class="col-xs-3" id="myScrollSpy">
+			<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="500">
+				<li class="active"><a href="#Glaxo">GlaxoSmithKline</a></li>
+				<li><a href="#Johnson">Johnson & Johnson</a></li>
+				<li><a href="#Procter">Procter & Gamble</a></li>
 			</ul>
 		</div>
-		<div class="row row-catalog" id="Books">
+		<div class="row row-catalog" id="Glaxo">
 			<div class="col-md-9 col-md-offset-3">
-				<% @books.each do |product| %>
+				<h2 class="subhead">GlaxoSmithKline</h2>
+				<div>
+					<% @glaxo.each do |product| %>
+					<div class="col-md-4" id="books">
+						<%= image_tag product.shopphoto.url(:square) %></br>
+						<%= link_to product.title, product, class: "subhead2" %>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="row row-catalog" id="Johnson">
+			<div class="col-md-9 col-md-offset-3">
+				<h2 class="subhead">Johnson & Johnson</h2>
+				<% @johnson.each do |product| %>
 				<div class="col-md-4" id="books">
 					<%= image_tag product.shopphoto.url(:square) %></br>
-					<%= link_to product.category, product %>
-					<%= product.brand %>
+					<%= link_to product.title, product, class: "subhead2" %>
 				</div>
 				<% end %>
 			</div>
 		</div>
-		<div class="row row-catalog" id="Medicine">
+		<div class="row row-catalog" id="Procter">
 			<div class="col-md-9 col-md-offset-3">
-				<% @medicine.each do |product| %>
+				<h2 class="subhead">Procter & Gamble</h2>
+				<% @pg.each do |product| %>
 				<div class="col-md-4" id="books">
 					<%= image_tag product.shopphoto.url(:square) %></br>
-					<%= link_to product.category, product %>
-					<%= product.brand %>
-				</div>
-				<% end %>
-			</div>
-		</div>
-		<div class="row row-catalog" id="Accessories">
-			<div class="col-md-9 col-md-offset-3">
-				<% @accessories.each do |product| %>
-				<div class="col-md-4" id="books">
-					<%= image_tag product.shopphoto.url(:square) %></br>
-					<%= link_to product.category, product %>
-					<%= product.brand %>
+					<%= link_to product.title, product, class: "subhead2" %>
 				</div>
 				<% end %>
 			</div>
