@@ -6,15 +6,15 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-3" id="myScrollSpy">
-			<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="1000">
+			<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="250">
 				<li class="active"><a href="#Glaxo">GlaxoSmithKline</a></li>
 				<li><a href="#Johnson">Johnson & Johnson</a></li>
 				<li><a href="#Procter">Procter & Gamble</a></li>
 			</ul>
 		</div>
-		<div class="row row-catalog" id="Glaxo">
+		<div class="row row-catalog">
 			<div class="col-md-9 col-md-offset-3">
-				<h2 class="subhead">GlaxoSmithKline</h2>
+				<h2 class="subhead" id="Glaxo">GlaxoSmithKline</h2>
 				<div>
 					<% @glaxo.each do |product| %>
 					<div class="col-md-4" id="books">
@@ -25,9 +25,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="row row-catalog" id="Johnson">
+		<div class="row row-catalog">
 			<div class="col-md-9 col-md-offset-3">
-				<h2 class="subhead">Johnson & Johnson</h2>
+				<h2 class="subhead" id="Johnson">Johnson & Johnson</h2>
 				<% @johnson.each do |product| %>
 				<div class="col-md-4" id="books">
 					<%= image_tag product.shopphoto.url(:square) %></br>
@@ -36,9 +36,9 @@
 				<% end %>
 			</div>
 		</div>
-		<div class="row row-catalog" id="Procter">
+		<div class="row row-catalog">
 			<div class="col-md-9 col-md-offset-3">
-				<h2 class="subhead">Procter & Gamble</h2>
+				<h2 class="subhead" id="Procter">Procter & Gamble</h2>
 				<% @pg.each do |product| %>
 				<div class="col-md-4" id="books">
 					<%= image_tag product.shopphoto.url(:square) %></br>

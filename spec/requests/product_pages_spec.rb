@@ -15,8 +15,15 @@ describe "ProductPages" do
   describe "create product page" do
     before { visit new_product_path }
     
-    it { should have_title("List new products") }
-    it { should have_selector('h1', text: "List new products") }
+    it { should have_title("List products") }
+    it { should have_selector('h1', text: "List products") }
+  end
+  
+  describe "catalog page" do
+    before { visit products_path }
+    
+    it { should have_title("Catalog") }
+    it { should have_selector('h1', text: "Catalog") }
   end
   
   describe "create products" do
@@ -33,9 +40,12 @@ describe "ProductPages" do
     
     describe "with valid information" do
       before do
-        fill_in "Title",       with: "Bread"
-        fill_in "Description", with: "This is a piece of bread"
-        fill_in "Price",       with: "1.00"
+        fill_in "Title",              with: "Bread"
+        fill_in "Description",        with: "This is a piece of bread"
+        fill_in "Price",              with: "1.00"
+        select "Books",              :from => "Category"
+        select "GlaxoSmithKline",    :from => "Brand"
+        attach_file("Merchandise Photo", "app/assets/images/Corelle1.jpg")
       end
       
       it "should create a product" do

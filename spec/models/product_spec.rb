@@ -3,15 +3,17 @@ require 'spec_helper'
 describe Product do
  
   before do 
-     @product = Product.new(title: "Bread", description: "This is a piece of bread", image_url: "bread.png", price: "6.00") 
+     @product = Product.new(title: "Bread", description: "This is a piece of bread", price: "6.00", shopphoto: "http://shopphoto.s3.amazonaws.com/products/shopphotos/000/000/003/square/corelle3.jpg?1404284586", category: "Books", brand: "GlaxoSmithKline") 
   end
   
   subject { @product }
   
   it { should respond_to(:title) }
   it { should respond_to(:description) }
-  it { should respond_to(:image_url) }
   it { should respond_to(:price) }
+  it { should respond_to(:brand) }
+  it { should respond_to(:category) }
+  it { should respond_to(:shopphoto) }
   
   it { should be_valid }
   
@@ -41,7 +43,7 @@ describe Product do
   end
   
   describe "when description is too long" do
-    before { @product.description = "a" * 101 }
+    before { @product.description = "a" * 201 }
     it { should_not be_valid }
   end
 end

@@ -2,6 +2,8 @@ Shop::Application.routes.draw do
   resources :users
   resources :sessions, only: [:create, :destroy]
   resources :products
+  resources :carts
+  resoources :lineitems
   
   root"static_pages#home"
   match '/signup',  to: 'users#new',            via: 'get'

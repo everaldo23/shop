@@ -8,10 +8,9 @@ class ProductsController < ApplicationController
   end
   
   def create
-    @user = User.find_by(params[:id])
     @product = Product.new(product_params)
     if @product.save
-      flash[:success] = "The product has been created, #{@user.name}"
+      flash[:success] = "The product has been created"
       redirect_to @product
     else
       render 'new'
