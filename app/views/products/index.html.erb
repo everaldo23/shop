@@ -14,15 +14,13 @@
 		</div>
 		<div class="row row-catalog">
 			<div class="col-md-9 col-md-offset-3">
-				<h2 class="subhead" id="Glaxo">GlaxoSmithKline</h2>
-				<div>
-					<% @glaxo.each do |product| %>
-					<div class="col-md-4" id="books">
-						<%= image_tag product.shopphoto.url(:square) %></br>
-						<%= link_to product.title, product, class: "subhead2" %>
-					</div>
-					<% end %>
+				<h2 class="subhead" id="Glaxo">GlaxoSmithKline</h2>				
+				<% @glaxo.each do |product| %>
+				<div class="col-md-4" id="books">
+					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
+					<%= product.title %>
 				</div>
+				<% end %>				
 			</div>
 		</div>
 		<div class="row row-catalog">
@@ -30,8 +28,8 @@
 				<h2 class="subhead" id="Johnson">Johnson & Johnson</h2>
 				<% @johnson.each do |product| %>
 				<div class="col-md-4" id="books">
-					<%= image_tag product.shopphoto.url(:square) %></br>
-					<%= link_to product.title, product, class: "subhead2" %>
+					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
+					<%= product.title %>
 				</div>
 				<% end %>
 			</div>
@@ -41,14 +39,16 @@
 				<h2 class="subhead" id="Procter">Procter & Gamble</h2>
 				<% @pg.each do |product| %>
 				<div class="col-md-4" id="books">
-					<%= image_tag product.shopphoto.url(:square) %></br>
-					<%= link_to product.title, product, class: "subhead2" %>
+					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
+					<%= product.title %>
 				</div>
 				<% end %>
 			</div>
 		</div>
 	</div>
 </div>
+
+<%= render "layouts/modal" %>
 
 
 
