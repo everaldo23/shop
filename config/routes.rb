@@ -1,7 +1,7 @@
 Shop::Application.routes.draw do
   resources :users
   resources :sessions, only: [:create, :destroy]
-  resources :products
+  resources :products 
 
   
   root"static_pages#home"

@@ -26,6 +26,9 @@ class ProductsController < ApplicationController
     @glaxo = Product.order(:brand).where({ brand: "GlaxoSmithKline"})
     @johnson = Product.order(:brand).where({ brand: "Johnson & Johnson"})
     @pg = Product.order(:brand).where({ brand: "Procter & Gamble"})
+    @astra = Product.order(:brand).where({ brand: "AstraZeneca" })
+    @pfizer = Product.order(:brand).where({ brand: "Pfizer" })
+    @merck = Product.order(:brand).where({ brand: "Merck & Co." })
   end
   
   private

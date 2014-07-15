@@ -10,11 +10,16 @@
 				<li class="active"><a href="#Glaxo">GlaxoSmithKline</a></li>
 				<li><a href="#Johnson">Johnson & Johnson</a></li>
 				<li><a href="#Procter">Procter & Gamble</a></li>
+				<li><a href="#Astra">AstraZeneca</a></li>
+				<li><a href="#Pfizer">Pfizer</a></li>
+				<li><a href="#Merck">Merck & Co.</a></li>
 			</ul>
 		</div>
 		<div class="row row-catalog">
 			<div class="col-md-9 col-md-offset-3">
-				<h2 class="subhead" id="Glaxo">GlaxoSmithKline</h2>				
+				<div class="subheader">
+					<h2 class="subhead" id="Glaxo">GlaxoSmithKline</h2>	
+				</div>			
 				<% @glaxo.each do |product| %>
 				<div class="col-md-4" id="books">
 					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
@@ -25,7 +30,9 @@
 		</div>
 		<div class="row row-catalog">
 			<div class="col-md-9 col-md-offset-3">
-				<h2 class="subhead" id="Johnson">Johnson & Johnson</h2>
+				<div class="subheader">
+					<h2 class="subhead" id="Johnson">Johnson & Johnson</h2>
+				</div>
 				<% @johnson.each do |product| %>
 				<div class="col-md-4" id="books">
 					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
@@ -36,8 +43,49 @@
 		</div>
 		<div class="row row-catalog">
 			<div class="col-md-9 col-md-offset-3">
-				<h2 class="subhead" id="Procter">Procter & Gamble</h2>
+				<div class="subheader">
+					<h2 class="subhead" id="Procter">Procter & Gamble</h2>
+				</div>
 				<% @pg.each do |product| %>
+				<div class="col-md-4" id="books">
+					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
+					<%= product.title %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="row row-catalog">
+			<div class="col-md-9 col-md-offset-3">
+				<div class="subheader">
+					<h2 class="subhead" id="Astra">AstraZeneca</h2>
+				</div>
+				<% @astra.each do |product| %>
+				<div class="col-md-4" id="books">
+					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
+					<%= product.title %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="row row-catalog">
+			<div class="col-md-9 col-md-offset-3">
+				<div class="subheader">
+					<h2 class="subhead" id="Pfizer">Pfizer</h2>
+				</div>
+				<% @pfizer.each do |product| %>
+				<div class="col-md-4" id="books">
+					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
+					<%= product.title %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="row row-catalog">
+			<div class="col-md-9 col-md-offset-3">
+				<div class="subheader">
+					<h2 class="subhead" id="Merck">Merck & Co.</h2>
+				</div>
+				<% @merck.each do |product| %>
 				<div class="col-md-4" id="books">
 					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
 					<%= product.title %>
