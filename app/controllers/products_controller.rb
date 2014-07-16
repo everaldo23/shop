@@ -12,11 +12,29 @@ class ProductsController < ApplicationController
     end
   end
   
+  def profile
+    @product = Product.find(params[:id])
+  end
+  
+  def edit
+    @product = Product.find(params[:id])
+  end
+  
+  def update
+    @product = Product.find(params[:id])
+    if @product.update_attributes(product_params)
+      flash[:success] = "Profile updated"
+      redirect_to profile_path(@product)
+    else
+      render 'edit'
+    end
+  end
+     
   def create
     @product = Product.new(product_params)
     if @product.save
       flash[:success] = "The product has been created"
-      redirect_to @product
+      redirect_to profile_path(@product)
     else
       render 'new'
     end
@@ -33,6 +51,6 @@ class ProductsController < ApplicationController
   
   private
     def product_params
-      params.require(:product).permit(:category, :brand, :title, :description, :shopphoto, :price)
+      params.require(:product).permit(:category, :brand, :title, :description, :shopphoto, :price, :stock)
     end
 end

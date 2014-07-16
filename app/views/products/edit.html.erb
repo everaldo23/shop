@@ -1,13 +1,13 @@
-<% provide(:title, "List products")%>
+<% provide(:title, "Edit products")%>
 
-<h1>List products</h1>
+<h1>Edit product listings</h1>
 
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 			<%= form_for(@product, :html => { :multipart => true} ) do |f| %>
 			<%= render 'fields', f: f %>
-			<%= f.submit "List product", class: "btn btn-large btn-custom" %>			
+			<%= f.submit "Update product", class: "btn btn-large btn-custom" %>			
 			<% end %>
 		</div>
 	</div>

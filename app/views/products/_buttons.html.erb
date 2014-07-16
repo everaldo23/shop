@@ -1,0 +1,12 @@
+<%= div_for(@product, class: "smallfoot") do %>
+	<%= button_to 'Product Profile', profile_path(@product),method: :get, class: "btn btn-primary", type: 'button' %>
+	<% if current_user.admin? %>
+		<%= button_to 'Edit product', edit_product_path(@product),method: :get, class: "btn btn-primary", type: 'button' %>
+		<%= button_to 'Delete', @product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger", type: 'button' %>	
+	<%else%>
+		<%= button_to 'Add to Cart', '#', class: "btn btn-primary", type: 'button' %>
+	<% end%>
+	<h1 class="pricefoot">
+		<%= print_price(@product.price) %>
+	</h1>
+<% end %>

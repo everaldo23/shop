@@ -1,6 +1,8 @@
 $modal = $('.modal'),
 $modalBody = $('.modal .modal-body'),
 $modalHeading = $('.modal .modal-heading');
+$modalFooter = $('.modal .modal-footer');
 $modalHeading.html("<%= @product.category %>");
 $modalBody.html("<%= escape_javascript(render @product) %>");
+$modalFooter.html("<%= escape_javascript(render 'products/buttons') %>");
 $modal.modal();

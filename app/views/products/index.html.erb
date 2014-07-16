@@ -23,7 +23,8 @@
 				<% @glaxo.each do |product| %>
 				<div class="col-md-4" id="books">
 					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
-					<%= product.title %>
+					<%= product.title %><br/>
+					<%= print_price(product.price) %>
 				</div>
 				<% end %>				
 			</div>

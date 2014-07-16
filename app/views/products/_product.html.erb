@@ -3,6 +3,10 @@
 <div class="good_image2">
 <%= image_tag @product.shopphoto.url(:medium) %>
 </div>
+<%= div_for(@product, class: "modal-script") do%>
+	<h1><%= @product.title %></h1>
+	<p><b><%= @product.description %></b></p>
+<% end %>
+<p><b><%= print_stock(@product.stock) %></b></p>
 
-<h1><%= @product.title %></h1>
 
