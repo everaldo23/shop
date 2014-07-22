@@ -1,10 +1,11 @@
-class ProductsController < ApplicationController
+class ProductsController < ApplicationController  
+  before_action :set_product, only: [:show, :profile, :update, :edit]
+  
   def new
     @product = Product.new
   end
   
   def show
-    @product = Product.find(params[:id])
     respond_to do |format|
         format.html
         format.js
@@ -13,15 +14,12 @@ class ProductsController < ApplicationController
   end
   
   def profile
-    @product = Product.find(params[:id])
   end
   
   def edit
-    @product = Product.find(params[:id])
   end
   
   def update
-    @product = Product.find(params[:id])
     if @product.update_attributes(product_params)
       flash[:success] = "Profile updated"
       redirect_to profile_path(@product)
@@ -52,5 +50,9 @@ class ProductsController < ApplicationController
   private
     def product_params
       params.require(:product).permit(:category, :brand, :title, :description, :shopphoto, :price, :stock)
+    end
+    
+    def set_product
+      @product = Product.find(params[:id])
     end
 end

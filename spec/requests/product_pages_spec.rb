@@ -6,7 +6,7 @@ describe "ProductPages" do
   
   describe "product listing page" do
     let (:product)  { FactoryGirl.create(:product) }
-    before { visit product_path(product) }
+    before { visit profile_path(product) }
     
     it { should have_selector('h1', text: product.title) }
     it { should have_title(product.title) }

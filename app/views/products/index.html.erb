@@ -6,6 +6,9 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-3" id="myScrollSpy">
+			<div class="cartbutton" data-spy="affix" data-offset-top="250">
+				<%= button_to 'Cart', order_path(@order, :id => session[:order_id]),remote: true, method: :get, class: "btn btn-primary", type: 'button' %>
+			</div>
 			<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="250">
 				<li class="active"><a href="#Glaxo">GlaxoSmithKline</a></li>
 				<li><a href="#Johnson">Johnson & Johnson</a></li>

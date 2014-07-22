@@ -1,0 +1,8 @@
+$modal = $('.modal'),
+$modalBody = $('.modal .modal-body'),
+$modalHeading = $('.modal .modal-header');
+$modalFooter = $('.modal .modal-footer');
+$modalHeading.html("<%= escape_javascript(render 'orders/heading') %>");
+$modalBody.html("<%= escape_javascript(render @order) %>");
+$modalFooter.html("<%= escape_javascript(render 'orders/buttons') %>");
+$modal.modal();

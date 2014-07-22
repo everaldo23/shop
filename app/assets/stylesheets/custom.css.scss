@@ -298,11 +298,22 @@ input {
     display:table-row;
 }
 
+/* Cartbuttons */
+
+.cartbutton {
+	width: 200px;
+    position: fixed;
+	margin-top: 100px;
+}
+
+.cartbutton.affix {
+	top: 25px;
+}
 /* Affix navbar */
 
 ul.nav-tabs{
 	width: 200px;
-	margin-top: 100px;
+	margin-top: 150px;
 	border-radius: 4px;
 	border : 1px solid #ddd;
 	box-shadow: 0 1px 4px rgba(0,0,0,0.067);
@@ -400,5 +411,27 @@ div.instock{
 	text-align: center;
 }
 
-
+.modal {
+	.modal-header{
+		background-color: black;
+		height: 50px;
+		-webkit-border-top-left-radius: 5px;
+		-webkit-border-top-right-radius: 5px;
+		-moz-border-radius-topleft: 5px;
+		-moz-border-radius-topright: 5px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+		.modal-heading{
+			color: white;
+			font-size: 30px;
+			font-style: bold;
+			text-align: center;
+			margin-top: -15px;
+		}
+	}
+	.modal-body {
+	    max-height: 450px;
+	    overflow-y: auto;
+	}
+}
 

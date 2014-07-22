@@ -11,12 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716050342) do
+ActiveRecord::Schema.define(version: 20140717105405) do
 
-  create_table "carts", force: true do |t|
+  create_table "order_items", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.integer  "quantity",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["user_id", "created_at"], name: "index_orders_on_user_id_and_created_at"
 
   create_table "products", force: true do |t|
     t.string   "title"

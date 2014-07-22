@@ -1,0 +1,7 @@
+<%= div_for(@order, class: "smallfoot") do %>	
+		<%= button_to 'Empty Cart', @order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger", type: 'button' %>	
+		<%= button_to 'Checkout', '#',  class: "btn btn-success", type: 'button' %>
+	<h1 class="pricefoot">
+		<%= print_price @order.total %>
+	</h1>
+<% end %>

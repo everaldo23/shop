@@ -17,5 +17,10 @@ FactoryGirl.define do
     brand        "GlaxoSmithKline"
     category     "Books"
     shopphoto    "http://shopphoto.s3.amazonaws.com/products/shopphotos/000/000/003/square/corelle3.jpg?1404284586"
-  end     
+  end   
+  
+  factory :order do
+    status "Unsubmitted"
+    user
+  end  
 end

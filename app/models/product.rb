@@ -1,10 +1,11 @@
 class Product < ActiveRecord::Base
-  has_many :line_items
+  has_many :order_items
   validates :category, presence: true
   validates :brand, presence: true
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true, length: { maximum: 200}
   validates :price, numericality: { greater_than_or_equal_to: 0.01 }
+  validates :stock, numericality: { greater_than_or_equal_to: 0}
   has_attached_file :shopphoto,
   :storage => :s3, :bucket => 'shopphoto', styles: {
       thumb: '100x100>',

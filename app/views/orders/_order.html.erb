@@ -1,0 +1,22 @@
+<table class="table table-border">
+	<thead>
+		<th>Item</th>
+		<th>Description</th>
+		<th>Quantity</th>
+		<th>Subtotal</th>
+	</thead>
+	<tbody>
+		<% @order.order_items.each do |item| %>
+		<tr>
+			<td><%= image_tag(item.product.shopphoto.url(:square)) %></td>
+			<td>
+				<b><%= item.product.title %></b></br></br>
+				Unit price: <%= print_price(item.product.price) %></br></br>
+				<%= button_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+			</td>
+			<td><%= link_to item.quantity, edit_order_item_path(item) %></td>
+			<td><%= print_price item.subtotal%></td>
+		</tr>
+		<% end%>
+	</tbody>
+</table>

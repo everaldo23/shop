@@ -1,4 +1,8 @@
 Shop::Application.routes.draw do
+  resources :orders
+
+  resources :order_items
+
   resources :users
   resources :sessions, only: [:create, :destroy]
   resources :products 
