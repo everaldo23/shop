@@ -1,12 +1,27 @@
-<%= div_for(@product, class: "smallfoot") do %>
+<%= div_for(@product, class: "form-inline") do %>
 	<%= button_to 'Product Profile', profile_path(@product),method: :get, class: "btn btn-primary", type: 'button' %>
 	<% if current_user.admin? %>
 		<%= button_to 'Edit product', edit_product_path(@product),method: :get, class: "btn btn-primary", type: 'button' %>
 		<%= button_to 'Delete', @product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger", type: 'button' %>	
 	<%else%>
-		<%= button_to 'Add to Cart', order_items_path(product_id: @product.id),  class: "btn btn-success", type: 'button' %>
+		<%= form_tag url_for(:controller => 'order_items', :action => 'create'), :method => 'post' do %>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="wrapper">
+					<div class="input-group">
+						<%= number_field_tag :quantity, params[:quantity], in: 1...99, class: "form-control", placeholder: "Qty" %>
+						<%= hidden_field_tag 'product_id', @product.id %>
+						<span class="input-group-btn">
+							<%= button_tag "Add to Cart", class: "btn btn-success" %>
+						</span>
+					</div>
+				</div><!-- /input-group -->
+			</div><!-- /.col-lg-6 -->
+		</div>
+		<% end %>
 	<% end%>
 	<h1 class="pricefoot">
 		<%= print_price(@product.price) %>
 	</h1>
 <% end %>
+

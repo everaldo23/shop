@@ -380,10 +380,13 @@ ul.nav-tabs.affix{
 	margin-bottom: 50px;
 }
 
-.smallfoot{
-	form {
+.form-inline{
+	form {	
 		float: left;
 		padding-right: 5px;
+		.input-group {
+			width: 170px;
+		}
 	}
 	h1.pricefoot {
 		float: right;
@@ -392,6 +395,7 @@ ul.nav-tabs.affix{
 	}
 	
 }
+
 
 .modal-script{
 	text-align: center;
