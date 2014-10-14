@@ -5,9 +5,9 @@ module ProductsHelper
   
   def print_stock(stock)
     if stock > 0
-      content_tag(:div, content_tag(:p, "Item is in stock"), class: "instock")
+      content_tag(:div, content_tag(:p, "Item in stock"), class: "instock" )
     else
-      content_tag(:div, content_tag(:p, "Item is out of stock"), class: "outstock")
-    end
+      content_tag(:div, content_tag(:p, "Item is out of stock"), class: "outstock" )
+    end    
   end
 end

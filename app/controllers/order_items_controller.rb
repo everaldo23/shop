@@ -5,6 +5,11 @@ class OrderItemsController < ApplicationController
 
   # GET /order_items/1/edit
   def edit
+    @order = @order_item.order
+    respond_to do |format|
+        format.html
+        format.js
+    end
   end
 
   # POST /order_items
@@ -27,12 +32,13 @@ class OrderItemsController < ApplicationController
   # PATCH/PUT /order_items/1.json
   def update
     @order_item = OrderItem.find(params[:id])
+    @order_item.quantity = (params[:quantity])
     respond_to do |format|
       if params[:order_item][:quantity].to_i == 0
         @order_item.destroy
         format.html { redirect_to @order_item.order, notice: 'Item was removed' }
       elsif @order_item.update(order_item_params)
-        format.html { redirect_to @order_item.order, notice: 'Order item was successfully updated.' }
+        format.html { redirect_to products_path }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

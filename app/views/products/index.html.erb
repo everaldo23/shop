@@ -10,93 +10,27 @@
 				<%= button_to 'Cart', order_path(@order, :id => session[:order_id]),remote: true, method: :get, class: "btn btn-primary", type: 'button' %>
 			</div>
 			<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="250">
-				<li class="active"><a href="#Glaxo">GlaxoSmithKline</a></li>
-				<li><a href="#Johnson">Johnson & Johnson</a></li>
-				<li><a href="#Procter">Procter & Gamble</a></li>
-				<li><a href="#Astra">AstraZeneca</a></li>
-				<li><a href="#Pfizer">Pfizer</a></li>
-				<li><a href="#Merck">Merck & Co.</a></li>
+				<li class="active"><a href="#glaxo">GlaxoSmithKline</a></li>
+				<li><a href="#corelle">Corelle</a></li>
+				
 			</ul>
 		</div>
+		<% Brand.all.each do |brand| %>
 		<div class="row row-catalog">
 			<div class="col-md-9 col-md-offset-3">
 				<div class="subheader">
-					<h2 class="subhead" id="Glaxo">GlaxoSmithKline</h2>	
+					<h2 class="subhead" id="<%= brand.html_id %>"><%= brand.name %></h2>	
 				</div>			
-				<% @glaxo.each do |product| %>
+				<% brand.products.each do |product| %>
 				<div class="col-md-4" id="books">
-					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
+					<%= link_to image_tag(product.syahrilpics.url(:square)), product, remote: true, data: { target: 'modal', toggle: "tooltip", placement: "top"}, title: "Click here to add to cart" %></br>
 					<%= product.title %><br/>
 					<%= print_price(product.price) %>
 				</div>
 				<% end %>				
 			</div>
 		</div>
-		<div class="row row-catalog">
-			<div class="col-md-9 col-md-offset-3">
-				<div class="subheader">
-					<h2 class="subhead" id="Johnson">Johnson & Johnson</h2>
-				</div>
-				<% @johnson.each do |product| %>
-				<div class="col-md-4" id="books">
-					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
-					<%= product.title %>
-				</div>
-				<% end %>
-			</div>
-		</div>
-		<div class="row row-catalog">
-			<div class="col-md-9 col-md-offset-3">
-				<div class="subheader">
-					<h2 class="subhead" id="Procter">Procter & Gamble</h2>
-				</div>
-				<% @pg.each do |product| %>
-				<div class="col-md-4" id="books">
-					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
-					<%= product.title %>
-				</div>
-				<% end %>
-			</div>
-		</div>
-		<div class="row row-catalog">
-			<div class="col-md-9 col-md-offset-3">
-				<div class="subheader">
-					<h2 class="subhead" id="Astra">AstraZeneca</h2>
-				</div>
-				<% @astra.each do |product| %>
-				<div class="col-md-4" id="books">
-					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
-					<%= product.title %>
-				</div>
-				<% end %>
-			</div>
-		</div>
-		<div class="row row-catalog">
-			<div class="col-md-9 col-md-offset-3">
-				<div class="subheader">
-					<h2 class="subhead" id="Pfizer">Pfizer</h2>
-				</div>
-				<% @pfizer.each do |product| %>
-				<div class="col-md-4" id="books">
-					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
-					<%= product.title %>
-				</div>
-				<% end %>
-			</div>
-		</div>
-		<div class="row row-catalog">
-			<div class="col-md-9 col-md-offset-3">
-				<div class="subheader">
-					<h2 class="subhead" id="Merck">Merck & Co.</h2>
-				</div>
-				<% @merck.each do |product| %>
-				<div class="col-md-4" id="books">
-					<%= link_to image_tag(product.shopphoto.url(:square)), product, remote: true %></br>
-					<%= product.title %>
-				</div>
-				<% end %>
-			</div>
-		</div>
+		<% end %>
 	</div>
 </div>
 

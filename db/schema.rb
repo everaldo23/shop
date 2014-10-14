@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717105405) do
+ActiveRecord::Schema.define(version: 20141014204331) do
+
+  create_table "brands", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "html_id"
+  end
+
+  create_table "carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "order_items", force: true do |t|
     t.integer  "product_id"
@@ -33,16 +45,16 @@ ActiveRecord::Schema.define(version: 20140717105405) do
   create_table "products", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.decimal  "price",                  precision: 8, scale: 2
+    t.decimal  "price",                    precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "shopphoto_file_name"
-    t.string   "shopphoto_content_type"
-    t.integer  "shopphoto_file_size"
-    t.datetime "shopphoto_updated_at"
-    t.string   "brand"
     t.string   "category"
-    t.integer  "stock",                                          default: 0
+    t.integer  "stock",                                            default: 0
+    t.string   "syahrilpics_file_name"
+    t.string   "syahrilpics_content_type"
+    t.integer  "syahrilpics_file_size"
+    t.datetime "syahrilpics_updated_at"
+    t.integer  "brand_id"
   end
 
   create_table "users", force: true do |t|

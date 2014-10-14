@@ -39,9 +39,6 @@ class ProductsController < ApplicationController
   end
   
   def index
-    @glaxo = Product.order(:brand).where({ brand: "GlaxoSmithKline"})
-    @johnson = Product.order(:brand).where({ brand: "Johnson & Johnson"})
-    @pg = Product.order(:brand).where({ brand: "Procter & Gamble"})
     @astra = Product.order(:brand).where({ brand: "AstraZeneca" })
     @pfizer = Product.order(:brand).where({ brand: "Pfizer" })
     @merck = Product.order(:brand).where({ brand: "Merck & Co." })
@@ -49,7 +46,7 @@ class ProductsController < ApplicationController
   
   private
     def product_params
-      params.require(:product).permit(:category, :brand, :title, :description, :shopphoto, :price, :stock)
+      params.require(:product).permit(:category, :title, :description, :syahrilpics, :price, :stock, :brand_id)
     end
     
     def set_product

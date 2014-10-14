@@ -20,9 +20,9 @@ Shop::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['shopphoto'],
-      :access_key_id => ENV['AKIAI3GCXRL5GFKD74BA'],
-      :secret_access_key => ENV['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']
+      :bucket => ENV['syahrilpics'],
+      :access_key_id => ENV['AKIAIMVHT47SL7I3SIOQ'],
+      :secret_access_key => ENV['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']
     }
   }
 

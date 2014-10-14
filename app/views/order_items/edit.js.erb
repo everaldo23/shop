@@ -1,0 +1,26 @@
+modal = $('.modal'),
+$modalBody = $('.modal .modal-body'),
+$modalHeading = $('.modal .modal-header');
+$modalFooter = $('.modal .modal-footer');
+$modalHeading.html("<%= escape_javascript(render 'order_items/heading') %>");
+$modalBody.html("<%= escape_javascript(render 'order_items/product') %>");
+$modalFooter.html("<%= escape_javascript(render 'order_items/form') %>")
+$modal.modal();
+
+function getNewTotal() 
+{
+	var theForm = document.forms["edit"];
+	var quantity = theForm.elements["quantity"];
+	var howmany =0;
+	var subtotal =0;
+	var unitPrice = "<%= @order_item.product.price %>";
+	var oldtotal = "<%= @order.total %>";
+	var oldsub = "<%= @order_item.subtotal %>";
+	var newtotal =0;
+	if(quantity.value!="") {
+		howmany = parseInt(quantity.value);
+		subtotal = howmany * unitPrice;
+		newtotal = oldtotal - oldsub + subtotal
+	}
+	document.getElementById("liveprice").innerHTML="New Total: RM " + newtotal +".00"
+}

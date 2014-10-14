@@ -1,23 +1,18 @@
-<%= form_for(@order_item) do |f| %>
-  <% if @order_item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order_item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
-      <ul>
-      <% @order_item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <%= @order_item.product.title %>
-
-  <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
+<%= form_for(@order_item, html: { class: "form-inline", id: "edit" }) do |f| %>
+  <div class="row">
+	  <div class="col-lg-4">
+		  <div class="wrapper">
+			  <div class="input-group input-group-2">
+				  <%= f.number_field :quantity, in: 1...99, class: "form-control", id: "quantity", placeholder: "Qty", oninput: "getNewTotal()" %>
+		  	      <span class="input-group-btn">
+				  	<%= f.submit "Update quantity", class: "btn btn-primary" %>
+				  </span>
+			  </div>
+		  </div>
+	  </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <p class="pricefoot2" id="liveprice">
+  </p>
 <% end %>
+
+	

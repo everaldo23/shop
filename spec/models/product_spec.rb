@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Product do
  
   before do 
-     @product = Product.new(title: "Bread", description: "This is a piece of bread", price: "6.00", shopphoto: "http://shopphoto.s3.amazonaws.com/products/shopphotos/000/000/003/square/corelle3.jpg?1404284586", category: "Books", brand: "GlaxoSmithKline") 
+     @product = Product.new(title: "Bread", description: "This is a piece of bread", price: "6.00", syahrilpics: "http://shopphoto.s3.amazonaws.com/products/shopphotos/000/000/003/square/corelle3.jpg?1404284586", category: "Books", brand: "GlaxoSmithKline") 
   end
   
   subject { @product }
@@ -13,7 +13,7 @@ describe Product do
   it { should respond_to(:price) }
   it { should respond_to(:brand) }
   it { should respond_to(:category) }
-  it { should respond_to(:shopphoto) }
+  it { should respond_to(:syahrilpics) }
   
   it { should be_valid }
   

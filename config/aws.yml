@@ -1,14 +1,14 @@
 development:
-  bucket_name: shopphoto
-  access_key_id: AKIAI3GCXRL5GFKD74BA
-  secret_access_key: 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
+  bucket_name: syahrilpics
+  access_key_id: AKIAIMVHT47SL7I3SIOQ
+  secret_access_key: 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
 
 test:
-  bucket_name: shopphoto
-  access_key_id: AKIAI3GCXRL5GFKD74BA
-  secret_access_key: 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
+  bucket_name: syahrilpics
+  access_key_id: AKIAIMVHT47SL7I3SIOQ
+  secret_access_key: 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
 
 production:
-  bucket_name: shopphoto
-  access_key_id: AKIAI3GCXRL5GFKD74BA
-  secret_access_key: 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
+  bucket_name: syahrilpics
+  access_key_id: AKIAIMVHT47SL7I3SIOQ
+  secret_access_key: 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

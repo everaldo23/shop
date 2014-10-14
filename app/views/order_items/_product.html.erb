@@ -1,0 +1,15 @@
+<div class="modal-title">
+	<h1><%= @order_item.product.title %></h1>
+</div>
+<div class="row">
+	<div class="col-md-4">
+		<div>
+			<%= image_tag @order_item.product.syahrilpics.url(:medium) %>
+		</div>
+	</div>
+	<div class="col-md-4 col-md-offset-4 modal-script2">
+		<h3><%= print_price(@order_item.product.price) %></h3></br>
+		<h3><%= print_stock(@order_item.product.stock) %></h3>
+	</div>
+</div>
+
