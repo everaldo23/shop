@@ -16,8 +16,4 @@ class Product < ActiveRecord::Base
   #Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :syahrilpics, :content_type => /\Aimage\/.*\Z/
   validates :syahrilpics, :attachment_presence => true
-  scope :glaxo, -> { order(:brand).where({brand: "GlaxoSmithKline"})}
-  scope :johnson, -> { order(:brand).where({ brand: "Johnson & Johnson"})}
-  scope :pg, -> { order(:brand).where({ brand: "Procter & Gamble"})}
-  
 end

@@ -10,12 +10,12 @@
 				<%= button_to 'Cart', order_path(@order, :id => session[:order_id]),remote: true, method: :get, class: "btn btn-primary", type: 'button' %>
 			</div>
 			<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="250">
-				<li class="active"><a href="#glaxo">GlaxoSmithKline</a></li>
-				<li><a href="#corelle">Corelle</a></li>
-				
+				<% @brand.each do |brand| %>
+				<li><a href="#<%= brand.html_id %>"><%= brand.name %></a></li>	
+				<% end %>	
 			</ul>
 		</div>
-		<% Brand.all.each do |brand| %>
+		<% @brand.each do |brand| %>
 		<div class="row row-catalog">
 			<div class="col-md-9 col-md-offset-3">
 				<div class="subheader">

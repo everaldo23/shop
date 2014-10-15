@@ -39,9 +39,7 @@ class ProductsController < ApplicationController
   end
   
   def index
-    @astra = Product.order(:brand).where({ brand: "AstraZeneca" })
-    @pfizer = Product.order(:brand).where({ brand: "Pfizer" })
-    @merck = Product.order(:brand).where({ brand: "Merck & Co." })
+    @brand = Brand.all.joins(:products).uniq
   end
   
   private
