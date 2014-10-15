@@ -1,14 +1,14 @@
 development:
   bucket_name: syahrilpics
-  access_key_id: AKIAIMVHT47SL7I3SIOQ
-  secret_access_key: 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
+  access_key_id: AWS_ACCESS_KEY_ID
+  secret_access_key: AWS_SECRET_KEY_ID
 
 test:
   bucket_name: syahrilpics
-  access_key_id: AKIAIMVHT47SL7I3SIOQ
-  secret_access_key: 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
+  access_key_id: AWS_ACCESS_KEY_ID
+  secret_access_key: AWS_SECRET_KEY_ID
 
 production:
   bucket_name: syahrilpics
-  access_key_id: AKIAIMVHT47SL7I3SIOQ
-  secret_access_key: 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
+  access_key_id: AWS_ACCESS_KEY_ID
+  secret_access_key: AWS_SECRET_KEY_ID
