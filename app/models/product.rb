@@ -8,7 +8,7 @@ class Product < ActiveRecord::Base
   validates :price, numericality: { greater_than_or_equal_to: 0.01 }
   validates :stock, numericality: { greater_than_or_equal_to: 0}
   has_attached_file :syahrilpics,
-  :storage => :s3, :bucket => 'syahrilpics', styles: {
+  :storage => :s3, :bucket => 'syahrilpics2', styles: {
       thumb: '100x100>',
       square: '200x200#',
       medium: '300x300#',
